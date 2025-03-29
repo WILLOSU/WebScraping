@@ -63,8 +63,9 @@ def download_and_compress_pdfs():
         zip_path = os.path.join(download_dir, "anexos_ans.zip")
         print(f"Compactando arquivos em {zip_path}...")
         
-        with shutil.make_archive(zip_path.replace('.zip', ''), 'zip', download_dir):
-            print(f"Compressão concluída. Arquivo salvo em: {zip_path}")
+        # Corrigido: Removido o 'with' e chamando a função diretamente
+        arquivo_zip = shutil.make_archive(zip_path.replace('.zip', ''), 'zip', download_dir)
+        print(f"Compressão concluída. Arquivo salvo em: {arquivo_zip}")
 
         # Opcional: Remover os arquivos PDF baixados
         for file in downloaded_files:
